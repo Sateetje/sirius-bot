@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  bot:
+    image: siriusbot:latest
+    container_name: siriusbot
+    restart: always
+    volumes:
+      - /etc/docker/compose/siriusbot/volumes/data:/data
+      - /etc/ssl/certs:/certs
+    network_mode: host
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - WEB_HOOK=https://93.99.7.35:8443/959271220:AAGMJMnFhHEUQt8k_gKiVDZ3FOkQA0XPyII
+      - BOT_TOKEN=959271220:AAGMJMnFhHEUQt8k_gKiVDZ3FOkQA0XPyII
+      - PORT=9011
+      - CERTIFICATE=/certs/nginx.pem
+      - URL_LOCATION=/
